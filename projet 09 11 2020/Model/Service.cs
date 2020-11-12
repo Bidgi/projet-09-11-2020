@@ -22,6 +22,12 @@ namespace projet_09_11_2020.Model
             _nomService = intituleProjet;
             _leResponsable = leResponsable;
         }
+        public Service(int idService, string intituleProjet)
+        {
+            _idService = idService;
+            _nomService = intituleProjet;
+        }
+
         #endregion
 
         #region Getters-Setters
@@ -31,6 +37,10 @@ namespace projet_09_11_2020.Model
         #endregion
 
         #region Méthodes
+        public void SetCollab(Collaborateur collaborateur)
+        {
+            this.LeResponsable = collaborateur;
+        }
         #endregion
     }
 }

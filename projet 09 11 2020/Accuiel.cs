@@ -24,23 +24,23 @@ namespace projet_09_11_2020
         /// </summary> 
         private void Accuiel_Load(object sender, EventArgs e)
         {
-            Service s1 = new Service(1, "Invention", c1);
-            Service s2 = new Service(2, "Ellaborer", c1);
+            Service s1 = new Service(1, "Invention");
+            Service s2 = new Service(2, "Ellaborer");
 
             Collaborateur c1 = new Collaborateur(1, "Michel", s1);
             Collaborateur c2 = new Collaborateur(2, "Patrick", s2);
 
-            Collaborateur.CollClasseCOllaborateur.Add(c1);
-            Collaborateur.CollClasseCOllaborateur.Add(c2);
+            s1.SetCollab(c1);
+            s2.SetCollab(c2);
 
-            Tache t1 = new Tache(1, "Nettoyer", new DateTime(2020, 02, 06), new DateTime(2020, 02, 08), 10, 15, "En cour", );
-            Tache t2 = new Tache(1, "Organiser", new DateTime(2020, 02, 06), new DateTime(2020, 02, 08), 15, 20, "En cour", lesCollaborateurs);
-            Tache.CollClasseTache.Add(t1);
-            Tache.CollClasseTache.Add(t2);
+            Tache t1 = new Tache(1, "Nettoyer", new DateTime(2020, 02, 06), new DateTime(2020, 02, 08), 10, 15, "En cour", new List<Collaborateur>() { c1, c2 });
+            Tache t2 = new Tache(1, "Organiser", new DateTime(2020, 02, 06), new DateTime(2020, 02, 08), 15, 20, "En cour", new List<Collaborateur>() { c1, c2 });
 
-            Projet p1 = new Projet(1, "AA", new DateTime(2020, 02, 05), new DateTime(2020, 02, 08), new DateTime(2020, 04, 05), new DateTime(2020, 05, 05), "Fini",);
+            Projet p1 = new Projet(1, "AA", new DateTime(2020, 02, 05), new DateTime(2020, 02, 08), new DateTime(2020, 04, 05), new DateTime(2020, 05, 05), "Fini", c1);
 
-            Lot l1 = new Lot(1, new DateTime(2020, 05, 02), new DateTime(2020, 02, 08), new DateTime(2020, 04, 05), new DateTime(2020, 05, 05), "Fini", p1, lesCollaborateurs);
+            Lot l1 = new Lot(1, new DateTime(2020, 05, 02), new DateTime(2020, 02, 08), new DateTime(2020, 04, 05), new DateTime(2020, 05, 05), "Fini", p1, new List<Tache>() {t1, t2});
+            p1.LesLot = new List<Lot>() { l1 };
+            p1.LesTacheRestantARealiser = new List<Tache>() { t1, t2 };
 
 
             foreach (Projet projet in Projet.CollClasseProjet) cbbProjet.Items.Add(projet.IntituleProjet);
@@ -80,7 +80,6 @@ namespace projet_09_11_2020
         {
             SupprimerTache supprimerTache = new SupprimerTache();
             supprimerTache.Show();
-            this.Close();
         }
         /// <summary> Raoul
         /// Permet d'ouvrir un from "changerPriorité"
@@ -89,7 +88,6 @@ namespace projet_09_11_2020
         {
             Change_Priorite change_Priorite = new Change_Priorite();
             change_Priorite.Show();
-            this.Close();
         }
     }
 }

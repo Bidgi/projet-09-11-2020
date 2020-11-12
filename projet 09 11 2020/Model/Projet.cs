@@ -38,6 +38,18 @@ namespace projet_09_11_2020.Model
             _lesTacheRestantARealiser = lesTacheRestantARealiser;
             CollClasseProjet.Add(this);
         }
+        public Projet(int idProjet, string intituleProjet, DateTime dateDebutPrevue, DateTime dateDebutReelle, DateTime dateFinPrevue, DateTime dateFinReelle, string etat, Collaborateur leResponsable)
+        {
+            _idProjet = idProjet;
+            _intituleProjet = intituleProjet;
+            _dateDebutPrevue = dateDebutPrevue;
+            _dateDebutReelle = dateDebutReelle;
+            _dateFinPrevue = dateFinPrevue;
+            _dateFinReelle = dateFinReelle;
+            _etat = etat;
+            _leResponsable = leResponsable;
+            CollClasseProjet.Add(this);
+        }
         #endregion
 
         #region Getters-Setters
