@@ -24,6 +24,25 @@ namespace projet_09_11_2020
         /// </summary> 
         private void Accuiel_Load(object sender, EventArgs e)
         {
+            Service s1 = new Service(1, "Invention", c1);
+            Service s2 = new Service(2, "Ellaborer", c1);
+
+            Collaborateur c1 = new Collaborateur(1, "Michel", s1);
+            Collaborateur c2 = new Collaborateur(2, "Patrick", s2);
+
+            Collaborateur.CollClasseCOllaborateur.Add(c1);
+            Collaborateur.CollClasseCOllaborateur.Add(c2);
+
+            Tache t1 = new Tache(1, "Nettoyer", new DateTime(2020, 02, 06), new DateTime(2020, 02, 08), 10, 15, "En cour", );
+            Tache t2 = new Tache(1, "Organiser", new DateTime(2020, 02, 06), new DateTime(2020, 02, 08), 15, 20, "En cour", lesCollaborateurs);
+            Tache.CollClasseTache.Add(t1);
+            Tache.CollClasseTache.Add(t2);
+
+            Projet p1 = new Projet(1, "AA", new DateTime(2020, 02, 05), new DateTime(2020, 02, 08), new DateTime(2020, 04, 05), new DateTime(2020, 05, 05), "Fini",);
+
+            Lot l1 = new Lot(1, new DateTime(2020, 05, 02), new DateTime(2020, 02, 08), new DateTime(2020, 04, 05), new DateTime(2020, 05, 05), "Fini", p1, lesCollaborateurs);
+
+
             foreach (Projet projet in Projet.CollClasseProjet) cbbProjet.Items.Add(projet.IntituleProjet);
         }
         /// <summary>Raoul
